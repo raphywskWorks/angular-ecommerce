@@ -1,3 +1,7 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
+import { ProductModel } from 'src/app/Models/store/product.model';
+import { ProductsService } from './../services/products.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StoreComponent implements OnInit {
 
-  constructor() { }
+  products: ProductModel[] = []
+  constructor(private productService: ProductsService, private snackbar: MatSnackBar) {
+    this.fetchProducts();
+  }
 
   ngOnInit(): void {
+  }
+
+  fetchProducts(): void {
+    this.productService.fetch().subscribe( res => {
+      this.products = res
+    }, err => {
+      this.snackbar.open(err.message, 'error')
+    })
   }
 
 }

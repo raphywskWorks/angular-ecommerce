@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ProductModel } from 'src/app/Models/store/product.model';
-import { Observable } from 'rxjs';
+import { Observable, retry, catchError } from 'rxjs';
 
 import { environment } from './../../../environments/environment';
+import { processError } from 'src/app/shared/helpers/processError';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class ProductsService {
     const options: string = `${resultSort}${resultLimit}`
 
     return this.http.get<ProductModel[]>(`${this.api}products${options}`)
+      .pipe(retry(1), catchError(processError))
   }
 
 }
