@@ -1,0 +1,19 @@
+<section class="container product-list">
+  <div class="row">
+    <div class="product-single" *ngFor="let product of products">
+      <mat-card>
+        <img mat-card-image [src]="product.image" >
+        <mat-card-title>
+          {{ product.title }}
+        </mat-card-title>
+        <mat-card-content>
+          {{ product.price }}
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>Action</button>
+        </mat-card-actions>
+
+      </mat-card>
+    </div>
+  </div>
+</section>
