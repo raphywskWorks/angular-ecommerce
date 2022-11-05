@@ -1,1 +1,31 @@
-<p>product-details works!</p>
+<section class="product-details">
+  <section class="product-image">
+    <img [src]="product ? product.image : ''" />
+  </section>
+  <section class="product-content">
+    <h1>{{ product ? product.title : '' }}</h1>
+    <p class="product-ref">Ref: #{{ product ? product.id : '' }}</p>
+    <article>
+      {{ product ?  product.description : '' }}
+    </article>
+
+    <div class="action-area">
+      <p class="product-price">{{ product ? (product.price | currency: "USD") : ''  }}</p>
+      <mat-form-field appearance="fill">
+        <mat-label>Quantity</mat-label>
+
+        <mat-select matInput [(ngModel)]="qtd" name="quantity">
+          <mat-option [value]="1">1</mat-option>
+          <mat-option [value]="2">2</mat-option>
+          <mat-option [value]="3">3</mat-option>
+          <mat-option [value]="4">4</mat-option>
+          <mat-option [value]="5">5</mat-option>
+        </mat-select>
+
+      </mat-form-field>
+
+      <button mat-raised-button color="primary">Add to cart</button>
+
+    </div>
+  </section>
+</section>

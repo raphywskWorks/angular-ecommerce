@@ -16,8 +16,7 @@ export class StoreComponent implements OnInit {
     this.fetchProducts();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   fetchProducts(): void {
     this.productService.fetch().subscribe( res => {

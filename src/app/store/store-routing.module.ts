@@ -2,17 +2,20 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { StoreComponent } from './store/store.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatCard } from '@angular/material/card';
+
 
 const routes: Routes = [
   { path: '', component: StoreComponent},
-  { path: 'products/:id', component: ProductDetailsComponent,  }
+  { path: 'products', redirectTo: ''},
+  {
+    path: 'products/:id',
+    component: ProductDetailsComponent,
+  }
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), MatSnackBarModule],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class StoreRoutingModule { }

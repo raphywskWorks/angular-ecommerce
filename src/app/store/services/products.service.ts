@@ -22,4 +22,9 @@ export class ProductsService {
       .pipe(retry(1), catchError(processError))
   }
 
+  getProductById(id: number | string): Observable<ProductModel> {
+    return this.http.get<ProductModel>(`${this.api}products/${id}`)
+      .pipe(retry(1), catchError(processError))
+  }
+
 }
