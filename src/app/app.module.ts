@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     HttpClientModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

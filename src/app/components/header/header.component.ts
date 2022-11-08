@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  cartIsActive = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleCart() {
+    this.cartIsActive = !this.cartIsActive
   }
 
 }
