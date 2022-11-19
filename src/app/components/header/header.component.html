@@ -1,31 +1,23 @@
 <div>
   <mat-toolbar color="primary" class="mat-elevation-z4">
-
     <div class="header-menu">
       <div class="header-title">
         <span>My Application</span>
       </div>
 
       <div class="menu">
-        <mat-icon (click)="router.navigate(['store'])">
-          home
-        </mat-icon>
+        <mat-icon (click)="router.navigate(['store'])"> home </mat-icon>
         <mat-icon>person_pin</mat-icon>
         <mat-icon (click)="toggleCart()">shopping_cart</mat-icon>
 
-        <div class="cart-dropdown" *ngIf="cartIsActive">
-          <div class="cart-info">
-            <span (click)="toggleCart()">x</span>
-          <h3>Your Cart</h3>
-          <div class="divisor"></div>
-        </div>
-        </div>
+        <app-cart-menu
+          *ngIf="cartIsActive"
+          [isActive]="cartIsActive"
+          (closeCart)="toggleCart()">
+        </app-cart-menu>
 
       </div>
-
     </div>
-
   </mat-toolbar>
-  <div class="divisor">
-  </div>
+  <div class="divisor"></div>
 </div>

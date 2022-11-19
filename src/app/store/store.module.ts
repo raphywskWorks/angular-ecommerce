@@ -14,6 +14,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductsComponent } from './products/products.component';
 import { StoreRoutingModule } from './store-routing.module';
 import { StoreComponent } from './store/store.component';
+import { CartMenuComponent } from './cart-menu/cart-menu.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { StoreComponent } from './store/store.component';
     StoreComponent,
     ProductsComponent,
     ProductDetailsComponent,
-    HeaderComponent
+    HeaderComponent,
+    CartMenuComponent
   ],
   imports: [
     CommonModule,

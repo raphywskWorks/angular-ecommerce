@@ -19,7 +19,7 @@ export class StoreComponent implements OnInit {
   ngOnInit(): void {}
 
   fetchProducts(): void {
-    this.productService.fetch().subscribe( res => {
+    this.productService.fetch().subscribe( (res) => {
       this.products = res
     }, err => {
       this.snackbar.open(err.message, 'error')
