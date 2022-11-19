@@ -10,7 +10,7 @@ import { processError } from 'src/app/shared/helpers/processError';
   providedIn: 'root'
 })
 export class ProductsService {
-  api: string =  environment.FAKE_STORE_API
+  api: string =  `${environment.FAKE_STORE_API}products/`
   constructor(private http: HttpClient) { }
 
   fetch(limit: number = 0): Observable<ProductModel[]> {
@@ -18,12 +18,12 @@ export class ProductsService {
     const resultSort: string = '?sort=desc'
     const options: string = `${resultSort}${resultLimit}`
 
-    return this.http.get<ProductModel[]>(`${this.api}products${options}`)
+    return this.http.get<ProductModel[]>(`${this.api}${options}`)
       .pipe(retry(1), catchError(processError))
   }
 
   getProductById(id: number | string): Observable<ProductModel> {
-    return this.http.get<ProductModel>(`${this.api}products/${id}`)
+    return this.http.get<ProductModel>(`${this.api}/${id}`)
       .pipe(retry(1), catchError(processError))
   }
 
