@@ -1,3 +1,4 @@
+import { CartService } from './../services/cart.service';
 import { catchError } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,6 +18,7 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(
     private productsService: ProductsService,
+    private cartService: CartService,
     private route: ActivatedRoute,
     private router: Router,
     private snackBar: MatSnackBar
@@ -55,6 +57,7 @@ export class ProductDetailsComponent implements OnInit {
       }
 
       this.product = product;
+      console.log(this.product)
 
     }, _ => {
       this.showConnectionError()
@@ -66,4 +69,5 @@ export class ProductDetailsComponent implements OnInit {
     this.qtd = qtd;
 
   }
+
 }
